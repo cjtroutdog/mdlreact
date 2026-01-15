@@ -2,11 +2,13 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/bigsplas/mdlreact/
     - /bin/mkdir -p $DEPLOYPATH
-    - /usr/bin/rsync -a --delete \
+    - /usr/bin/rsync -a \
         --exclude '.git/' \
         --exclude '.github/' \
         --exclude '.vscode/' \
-        --exclude 'node_modules/' \
+        --exclude 'node_modules' \
+        --exclude '.env' \
+        --exclude '.env.*' \
         --exclude 'tmp/' \
         --exclude '*.log' \
         --exclude 'README.md' \
