@@ -1,0 +1,24 @@
+{
+  "name": "direct-lenders-website",
+  "version": "1.0.0",
+  "description": "Direct Lenders LLC - Modern Mortgage Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "npm install"
+  },
+  "keywords": ["mortgage", "lending", "direct-lenders"],
+  "author": "Direct Lenders LLC",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
