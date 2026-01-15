@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "npm install"
+    "build": "echo \"No build step (served from public/)\""
   },
   "keywords": ["mortgage", "lending", "direct-lenders"],
   "author": "Direct Lenders LLC",

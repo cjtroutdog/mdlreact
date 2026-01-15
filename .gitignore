@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build outputs (usually generated)
+dist/
+build/
+.out/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# misc
+*.local
