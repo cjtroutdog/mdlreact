@@ -1,0 +1,63 @@
+name: Auto-deploy to cPanel (SSH)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cpanel-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CPANEL_SSH_HOST }}
+          username: ${{ secrets.CPANEL_SSH_USER }}
+          key: ${{ secrets.CPANEL_SSH_KEY }}
+          port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+
+            REPO_PATH="${CPANEL_REPO_PATH:-/home/${{ secrets.CPANEL_SSH_USER }}/repos/mdlreact}"
+            DOCROOT="${CPANEL_DOCROOT:-/home/${{ secrets.CPANEL_SSH_USER }}/mdlreact}"
+
+            echo "Repo path: ${REPO_PATH}"
+            echo "Docroot:   ${DOCROOT}"
+
+            if [ ! -d "${REPO_PATH}/.git" ]; then
+              echo "ERROR: ${REPO_PATH} is not a git repo on the server." >&2
+              exit 1
+            fi
+
+            cd "${REPO_PATH}"
+            git fetch --all --prune
+            git checkout main
+            git reset --hard origin/main
+
+            /bin/mkdir -p "${DOCROOT}"
+
+            /usr/bin/rsync -a \
+              --exclude '.git/' \
+              --exclude '.github/' \
+              --exclude '.vscode/' \
+              --exclude 'node_modules' \
+              --exclude '.env' \
+              --exclude '.env.*' \
+              --exclude 'tmp/' \
+              --exclude '*.log' \
+              --exclude 'README.md' \
+              --exclude '.gitignore' \
+              --exclude '.cpanel.yml' \
+              ./ "${DOCROOT}/"
+
+            echo "Deploy complete."
+        env:
+          CPANEL_REPO_PATH: ${{ secrets.CPANEL_REPO_PATH }}
+          CPANEL_DOCROOT: ${{ secrets.CPANEL_DOCROOT }}
