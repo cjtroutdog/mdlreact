@@ -65,9 +65,21 @@ function DirectLendersHome() {
   ];
 
   const loanOfficerRow2 = [
-    { ...loanOfficerRow1[0], name: "David Summers", email: "david@mydirectlender.com" },
-    { ...loanOfficerRow1[1], name: "Chris Walker", email: "chris@mydirectlender.com" },
-    { ...loanOfficerRow1[2], name: "Jimmy Lawler", email: "jimmy@mydirectlender.com" },
+    {
+      ...loanOfficerRow1[0],
+      name: "David Summers",
+      email: "david@mydirectlender.com",
+    },
+    {
+      ...loanOfficerRow1[1],
+      name: "Chris Walker",
+      email: "chris@mydirectlender.com",
+    },
+    {
+      ...loanOfficerRow1[2],
+      name: "Jimmy Lawler",
+      email: "jimmy@mydirectlender.com",
+    },
   ];
 
   const loanOfficers = [...loanOfficerRow1, ...loanOfficerRow2];
@@ -125,146 +137,160 @@ function DirectLendersHome() {
     >
       {/* Navigation */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-500 ${
+        className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-slate-900 bg-opacity-95 backdrop-blur-md shadow-lg py-3"
-            : "bg-transparent py-6"
+            ? "bg-white shadow-md py-4"
+            : "bg-white md:bg-transparent py-5 md:py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center text-2xl">
-              🏠
-            </div>
-            <div>
-              <div
-                className="text-white text-xl font-bold tracking-tight"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Direct Lenders
-              </div>
-              <div className="text-amber-400 text-xs font-medium tracking-wider">
-                LLC
-              </div>
-            </div>
+            <img
+              src="https://imagedelivery.net/Zxp1JaGxAqaynf9HLRk0UA/6f049967-c9cd-483f-23a0-25ec2fcf1200/intro450w"
+              alt="Direct Lenders"
+              className="h-16 w-auto"
+            />
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#services"
-              className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium"
+              className={`transition-colors font-medium ${
+                scrolled
+                  ? "text-slate-700 hover:text-blue-600"
+                  : "text-white hover:text-blue-200"
+              }`}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Services
             </a>
             <a
               href="#team"
-              className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium"
+              className={`transition-colors font-medium ${
+                scrolled
+                  ? "text-slate-700 hover:text-blue-600"
+                  : "text-white hover:text-blue-200"
+              }`}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Our Team
             </a>
             <a
               href="#testimonials"
-              className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium"
+              className={`transition-colors font-medium ${
+                scrolled
+                  ? "text-slate-700 hover:text-blue-600"
+                  : "text-white hover:text-blue-200"
+              }`}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Testimonials
             </a>
             <a
               href="#contact"
-              className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-6 py-2.5 rounded-lg font-semibold transition-all hover:shadow-xl text-sm"
+              className={`px-6 py-2.5 rounded-full font-semibold transition-all ${
+                scrolled
+                  ? "bg-blue-600 hover:bg-blue-700 text-white"
+                  : "bg-white text-blue-600 hover:bg-blue-50"
+              }`}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              Get Started
+              (555) 123-4567
             </a>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.15) 1px, transparent 0)",
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://imagedelivery.net/Zxp1JaGxAqaynf9HLRk0UA/adde1394-ac1c-4d45-1ac0-f21fcbec9c00/hero')",
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-slate-900 bg-opacity-20"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-block">
-                <div className="flex items-center gap-2 bg-amber-500 bg-opacity-10 border border-amber-500 border-opacity-20 rounded-full px-4 py-2 backdrop-blur-sm">
-                  <AwardIcon />
-                  <span className="text-amber-400 text-sm font-medium">
-                    Full-Service Direct Lender
-                  </span>
-                </div>
-              </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="flex flex-col items-center text-center">
+            {/* Main Headline */}
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 w-full max-w-full"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "clamp(2rem, 8vw, 4.5rem)",
+              }}
+            >
+              A home loan that works for you.
+            </h1>
 
-              <h1
-                className="text-5xl lg:text-7xl font-bold text-white leading-tight"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+            <p className="text-xl md:text-2xl text-white mb-12 max-w-2xl font-light">
+              Combining expertise with personalized service to make your
+              homeownership dreams a reality.
+            </p>
+
+            {/* Apply Now Box */}
+            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10 max-w-md w-full">
+              <h2
+                className="text-3xl font-bold text-slate-900 mb-6"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
-                Your Home
-                <span className="block text-amber-400 mt-2">
-                  Financing Partner
-                </span>
-              </h1>
+                Get Started Today
+              </h2>
 
-              <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-                Combining Wall Street expertise with small-town service. We're
-                here to make your homeownership dreams a reality with
-                personalized attention every step of the way.
-              </p>
-
-              <div className="inline-flex items-center gap-2 text-xs text-slate-100 bg-amber-600/20 border border-amber-500/40 rounded-full px-3 py-1 w-fit">
-                <span className="text-amber-300 font-bold">Badge test v1</span>
-                <span className="text-slate-200">
-                  {new Date().toLocaleString()}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="space-y-4">
                 <a
                   href="#team"
-                  className="group bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-xl font-bold transition-all hover:shadow-2xl flex items-center gap-2 text-lg"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all hover:shadow-xl text-lg text-center"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Start Your Application
-                  <ChevronRightIcon />
+                  Apply Now
                 </a>
-                <a
-                  href="tel:555-123-4567"
-                  className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl font-semibold transition-all border border-slate-700 hover:border-amber-500 hover:border-opacity-50 flex items-center gap-2 text-lg"
-                >
-                  <PhoneIcon />
-                  (555) 123-4567
-                </a>
+
+                <div className="flex items-center justify-center gap-2 text-slate-600">
+                  <span className="text-sm">or call us at</span>
+                  <a
+                    href="tel:555-123-4567"
+                    className="text-blue-600 font-semibold hover:text-blue-700 text-sm"
+                  >
+                    (555) 123-4567
+                  </a>
+                </div>
               </div>
 
-              <div className="flex items-center gap-8 pt-8 border-t border-slate-700">
-                <div>
-                  <div className="text-3xl font-bold text-white">$2.5B+</div>
-                  <div className="text-slate-400 text-sm">Loans Funded</div>
+              {/* Trust Indicators */}
+              <div className="flex items-center justify-around pt-6 mt-6 border-t border-slate-200">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-slate-900">
+                    $2.5B+
+                  </div>
+                  <div className="text-xs text-slate-600">Loans Funded</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-white">15+</div>
-                  <div className="text-slate-400 text-sm">Years Experience</div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-slate-900">15+</div>
+                  <div className="text-xs text-slate-600">Years Exp.</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-white">5,000+</div>
-                  <div className="text-slate-400 text-sm">Happy Families</div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-slate-900">
+                    5,000+
+                  </div>
+                  <div className="text-xs text-slate-600">Happy Clients</div>
                 </div>
               </div>
             </div>
 
-            <div className="relative lg:block hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500 from-opacity-20 to-transparent rounded-3xl blur-3xl"></div>
-              <img
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
-                alt="Beautiful home"
-                className="relative rounded-2xl shadow-2xl border border-slate-700 border-opacity-50"
-              />
+            {/* Bottom CTA */}
+            <div className="mt-8 text-white">
+              <p className="text-sm">
+                Looking for help?{" "}
+                <a href="#contact" className="underline hover:text-blue-200">
+                  Get in touch with us
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -276,13 +302,14 @@ function DirectLendersHome() {
           <div className="text-center mb-16">
             <h2
               className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              Comprehensive Mortgage Solutions
+              Yeah, there's a loan for that
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              From purchase to refinance, we offer expert guidance and
-              competitive rates tailored to your unique needs.
+              From first-timers to homebuying veterans, we're ready to help.
+              Whatever type of mortgage you need, we want to make it work for
+              you.
             </p>
           </div>
 
@@ -290,14 +317,14 @@ function DirectLendersHome() {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl border border-slate-200 hover:border-amber-400 hover:border-opacity-50 hover:shadow-2xl transition-all duration-300"
+                className="group bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl border border-slate-200 hover:border-blue-400 hover:border-opacity-50 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-3xl">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-3xl">
                   <service.icon />
                 </div>
                 <h3
                   className="text-2xl font-bold text-slate-900 mb-3"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {service.title}
                 </h3>
@@ -319,7 +346,7 @@ function DirectLendersHome() {
           <div className="text-center mb-16">
             <h2
               className="text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Meet Your Loan Officers
             </h2>
@@ -333,7 +360,7 @@ function DirectLendersHome() {
             {loanOfficers.map((officer, idx) => (
               <div
                 key={idx}
-                className="group bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-amber-500 hover:border-opacity-50 transition-all duration-300 hover:shadow-2xl cursor-pointer"
+                className="group bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 hover:border-opacity-50 transition-all duration-300 hover:shadow-2xl cursor-pointer"
               >
                 <div className="relative h-80 overflow-hidden">
                   <img
@@ -345,11 +372,11 @@ function DirectLendersHome() {
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3
                       className="text-2xl font-bold text-white mb-1"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
+                      style={{ fontFamily: "'DM Sans', sans-serif" }}
                     >
                       {officer.name}
                     </h3>
-                    <p className="text-amber-400 font-medium mb-2">
+                    <p className="text-blue-400 font-medium mb-2">
                       {officer.title}
                     </p>
                     <p className="text-slate-300 text-sm">{officer.nmls}</p>
@@ -368,7 +395,7 @@ function DirectLendersHome() {
                     ))}
                   </div>
 
-                  <div className="border-l-2 border-amber-500 pl-4 py-2">
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
                     <p className="text-slate-300 text-sm italic">
                       "{officer.testimonial}"
                     </p>
@@ -377,21 +404,21 @@ function DirectLendersHome() {
                   <div className="space-y-2 pt-2">
                     <a
                       href={`tel:${officer.phone}`}
-                      className="flex items-center gap-3 text-slate-300 hover:text-amber-400 transition-colors text-sm"
+                      className="flex items-center gap-3 text-slate-300 hover:text-blue-400 transition-colors text-sm"
                     >
                       <PhoneIcon />
                       {officer.phone}
                     </a>
                     <a
                       href={`mailto:${officer.email}`}
-                      className="flex items-center gap-3 text-slate-300 hover:text-amber-400 transition-colors text-sm"
+                      className="flex items-center gap-3 text-slate-300 hover:text-blue-400 transition-colors text-sm"
                     >
                       <MailIcon />
                       {officer.email}
                     </a>
                   </div>
 
-                  <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 py-3 rounded-xl font-bold transition-all hover:shadow-lg flex items-center justify-center gap-2 mt-4">
+                  <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-bold transition-all hover:shadow-lg flex items-center justify-center gap-2 mt-4">
                     Start Application
                     <ChevronRightIcon />
                   </button>
@@ -408,7 +435,7 @@ function DirectLendersHome() {
           <div className="text-center mb-12">
             <h2
               className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               What Our Clients Say
             </h2>
@@ -438,11 +465,11 @@ function DirectLendersHome() {
                   >
                     <p
                       className="text-2xl text-slate-700 leading-relaxed text-center mb-6"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
+                      style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                       "{testimonial.text}"
                     </p>
-                    <p className="text-amber-600 font-semibold text-center text-lg">
+                    <p className="text-blue-600 font-semibold text-center text-lg">
                       — {testimonial.author}
                     </p>
                   </div>
@@ -456,7 +483,7 @@ function DirectLendersHome() {
                     onClick={() => setActiveTestimonial(idx)}
                     className={`h-3 rounded-full transition-all ${
                       idx === activeTestimonial
-                        ? "bg-amber-500 w-8"
+                        ? "bg-blue-600 w-8"
                         : "bg-slate-300 w-3"
                     }`}
                   />
@@ -475,7 +502,7 @@ function DirectLendersHome() {
         <div className="max-w-4xl mx-auto text-center">
           <h2
             className="text-4xl lg:text-6xl font-bold text-white mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Ready to Get Started?
           </h2>
@@ -487,14 +514,14 @@ function DirectLendersHome() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#team"
-              className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-10 py-5 rounded-xl font-bold transition-all hover:shadow-2xl flex items-center gap-2 text-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-xl font-bold transition-all hover:shadow-2xl flex items-center gap-2 text-lg"
             >
               Choose Your Loan Officer
               <ChevronRightIcon />
             </a>
             <a
               href="tel:555-123-4567"
-              className="bg-slate-700 hover:bg-slate-600 text-white px-10 py-5 rounded-xl font-semibold transition-all border border-slate-600 hover:border-amber-500 hover:border-opacity-50 flex items-center gap-2 text-lg"
+              className="bg-slate-700 hover:bg-slate-600 text-white px-10 py-5 rounded-xl font-semibold transition-all border border-slate-600 hover:border-blue-500 hover:border-opacity-50 flex items-center gap-2 text-lg"
             >
               <PhoneIcon />
               Call Us Now
@@ -509,17 +536,17 @@ function DirectLendersHome() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center text-2xl">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-2xl">
                   🏠
                 </div>
                 <div>
                   <div
                     className="text-white font-bold"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Direct Lenders
                   </div>
-                  <div className="text-amber-400 text-xs">LLC</div>
+                  <div className="text-blue-400 text-xs">LLC</div>
                 </div>
               </div>
               <p className="text-sm">
@@ -532,26 +559,17 @@ function DirectLendersHome() {
               <h4 className="text-white font-semibold mb-3">Services</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     Purchase Loans
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     Refinancing
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     Home Equity
                   </a>
                 </li>
@@ -562,26 +580,17 @@ function DirectLendersHome() {
               <h4 className="text-white font-semibold mb-3">Company</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     Our Team
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <a href="#" className="hover:text-blue-400 transition-colors">
                     Contact
                   </a>
                 </li>
