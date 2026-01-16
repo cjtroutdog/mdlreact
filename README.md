@@ -48,6 +48,10 @@ Create these in GitHub → **Settings** → **Secrets and variables** → **Acti
 - `CPANEL_SSH_USER`: your cPanel/SSH username (example: `bigsplas`)
 - `CPANEL_SSH_KEY`: a private key (recommended: a dedicated deploy key for this repo)
 
+If your private key is passphrase-protected, also set:
+
+- `CPANEL_SSH_PASSPHRASE`: the passphrase for `CPANEL_SSH_KEY`
+
 Optional:
 
 - `CPANEL_SSH_PORT`: usually `22`
@@ -57,6 +61,13 @@ Optional:
 ### What it does
 
 On push to `main`, GitHub Actions SSHes into your server, updates the server-side clone, then `rsync`s the repo into the docroot.
+
+### SSH key tip (cPanel)
+
+Some cPanel screens require setting a passphrase when *generating* a key. For GitHub Actions, either:
+
+- Use a passphrase (store it in `CPANEL_SSH_PASSPHRASE`), or
+- Generate a key locally with no passphrase and use cPanel **Import Key** to add the public key to the server.
 
 ### Disable
 
