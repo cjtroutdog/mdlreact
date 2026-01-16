@@ -152,6 +152,11 @@ function DirectLendersHome() {
               <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
                 Combining Wall Street expertise with small-town service. We're here to make your homeownership dreams a reality with personalized attention every step of the way.
               </p>
+
+              <div className="inline-flex items-center gap-2 text-xs text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 w-fit">
+                <span className="text-amber-400 font-semibold">Last updated</span>
+                <span>{new Date().toLocaleDateString()}</span>
+              </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <a href="#team" className="group bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-xl font-bold transition-all hover:shadow-2xl flex items-center gap-2 text-lg">
