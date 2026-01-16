@@ -153,9 +153,9 @@ function DirectLendersHome() {
                 Combining Wall Street expertise with small-town service. We're here to make your homeownership dreams a reality with personalized attention every step of the way.
               </p>
 
-              <div className="inline-flex items-center gap-2 text-xs text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1 w-fit">
-                <span className="text-amber-400 font-semibold">Last updated</span>
-                <span>{new Date().toLocaleDateString()}</span>
+              <div className="inline-flex items-center gap-2 text-xs text-slate-100 bg-amber-600/20 border border-amber-500/40 rounded-full px-3 py-1 w-fit">
+                <span className="text-amber-300 font-bold">Badge test v1</span>
+                <span className="text-slate-200">{new Date().toLocaleString()}</span>
               </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
